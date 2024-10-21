@@ -1,0 +1,45 @@
+{
+  "name": "multi-debounce",
+  "version": "1.0.0",
+  "description": "Custom firebase persistence for browser extensions",
+  "homepage": "https://github.com/ivliag/multi-debounce#readme",
+  "bugs": {
+    "url": "https://github.com/ivliag/multi-debounce/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivliag/multi-debounce.git"
+  },
+  "license": "ISC",
+  "author": "Ivan Liagushkin",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc --noEmit",
+    "format": "prettier --write ."
+  },
+  "exports": {
+    "./useMultiDebounce": "./dist/useMultiDebounce.js",
+    "./mutliDebounce": "./dist/mutliDebounce.js"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.20",
+    "@types/react": "^19.1.15",
+    "prettier": "^3.6.2",
+    "react": "^19.1.1",
+    "typescript": "^5.9.2"
+  },
+  "peerDependencies": {
+    "react": "^16.8"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "packageManager": "yarn@4.10.2+sha512.0b0e54ad5381f0a35184957bd3ea44e37f5a4fb1960b903b0fb9a3c7c2c009190455c41ef2a1977b1dbd3b72c5f152da696e9c52e2bc78a011b6adea8ee73ba3"
+}
