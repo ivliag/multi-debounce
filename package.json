@@ -13,11 +13,11 @@
   "license": "ISC",
   "author": "Ivan Liagushkin",
   "type": "commonjs",
-  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "test": "tsc --noEmit && vitest run",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "publish": "npm test && npm run build && npm version patch && npm publish"
   },
   "exports": {
     "./useMultiDebounce": "./dist/useMultiDebounce.js",
