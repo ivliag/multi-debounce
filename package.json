@@ -1,6 +1,6 @@
 {
   "name": "multi-debounce",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Custom firebase persistence for browser extensions",
   "homepage": "https://github.com/ivliag/multi-debounce#readme",
   "bugs": {
