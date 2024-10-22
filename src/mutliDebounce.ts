@@ -1,6 +1,11 @@
-import type { DebouncedFunc } from 'lodash';
-import { debounce } from 'lodash';
-import { AnyFunction, DefaultDelaysConfig, DelaysConfig, MutliDebounceFunctions } from './types';
+import type { DebouncedFunc } from "lodash";
+import { debounce } from "lodash";
+import {
+  AnyFunction,
+  DefaultDelaysConfig,
+  DelaysConfig,
+  MutliDebounceFunctions,
+} from "./types";
 
 export const defaultMultiDebounceDelays = {
   none: 0,
@@ -19,7 +24,13 @@ export const defaultMultiDebounceDelays = {
   3000: 3000,
 } as const;
 
-export const multiDebounce = <T extends AnyFunction, D extends DelaysConfig = DefaultDelaysConfig>(fn: T, delays?: D) => {
+export const multiDebounce = <
+  T extends AnyFunction,
+  D extends DelaysConfig = DefaultDelaysConfig,
+>(
+  fn: T,
+  delays?: D,
+) => {
   const resolvedDelays = delays || defaultMultiDebounceDelays;
   const resultFns = {} as MutliDebounceFunctions<T, D>;
 

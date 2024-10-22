@@ -5,6 +5,7 @@ Smart debouncing utility that allows immediate execution on certain triggers (li
 ## Why Multi-Debounce?
 
 When building search inputs, you typically want to:
+
 - **Debounce** regular typing to avoid excessive API calls
 - **Execute immediately** when user presses Enter or pastes text
 - **Avoid complex state management** that comes with controlling this behavior in React
@@ -22,11 +23,11 @@ npm install multi-debounce
 ### React Hook
 
 ```tsx
-import { useMultiDebounce } from 'multi-debounce/useMultiDebounce';
+import { useMultiDebounce } from "multi-debounce/useMultiDebounce";
 
 function SearchInput() {
   const search = useMultiDebounce((query: string) => {
-    console.log('Searching for:', query);
+    console.log("Searching for:", query);
     // Make API call here
   });
 
@@ -36,7 +37,7 @@ function SearchInput() {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       // Immediate search, cancels any pending debounced calls
       search.none((e.target as HTMLInputElement).value);
     }
@@ -44,7 +45,7 @@ function SearchInput() {
 
   const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
     // Immediate search on paste
-    search.none(e.clipboardData.getData('text'));
+    search.none(e.clipboardData.getData("text"));
   };
 
   return (
@@ -62,28 +63,28 @@ function SearchInput() {
 ### Vanilla JavaScript
 
 ```javascript
-import { multiDebounce } from 'multi-debounce/mutliDebounce';
+import { multiDebounce } from "multi-debounce/mutliDebounce";
 
 const search = multiDebounce((query) => {
-  console.log('Searching for:', query);
+  console.log("Searching for:", query);
   // Make API call here
 });
 
 // Regular typing - debounced
-input.addEventListener('input', (e) => {
+input.addEventListener("input", (e) => {
   search.m(e.target.value);
 });
 
 // Enter key - immediate
-input.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
     search.none(e.target.value);
   }
 });
 
 // Paste - immediate
-input.addEventListener('paste', (e) => {
-  search.none(e.clipboardData.getData('text'));
+input.addEventListener("paste", (e) => {
+  search.none(e.clipboardData.getData("text"));
 });
 ```
 
@@ -118,7 +119,7 @@ You can provide custom delay configurations:
 const customDelays = {
   immediate: 0,
   fast: 100,
-  slow: 800
+  slow: 800,
 };
 
 // React
@@ -129,8 +130,8 @@ const debouncedFn = multiDebounce(myFunction, customDelays);
 
 // Usage
 debouncedFn.immediate(data); // Executes immediately
-debouncedFn.fast(data);      // 100ms delay
-debouncedFn.slow(data);      // 800ms delay
+debouncedFn.fast(data); // 100ms delay
+debouncedFn.slow(data); // 800ms delay
 ```
 
 ## Advanced Usage
@@ -168,7 +169,7 @@ function EmailInput() {
     <input
       type="email"
       onChange={(e) => validateEmail.m(e.target.value)} // 200ms delay
-      onBlur={(e) => validateEmail.s(e.target.value)}   // 50ms delay on blur
+      onBlur={(e) => validateEmail.s(e.target.value)} // 50ms delay on blur
     />
   );
 }
@@ -181,7 +182,7 @@ Fully typed with TypeScript. Generic types preserve function signatures:
 ```typescript
 const typedDebounce = useMultiDebounce(
   (id: number, name: string) => Promise<User>,
-  { quick: 100, normal: 300 }
+  { quick: 100, normal: 300 },
 );
 
 // TypeScript knows these return Promise<User>
@@ -191,4 +192,4 @@ typedDebounce.normal(2, "Jane");
 
 ## License
 
-ISC
+[MIT](./LICENSE)
