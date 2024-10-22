@@ -17,12 +17,17 @@
     "build": "tsc",
     "test": "tsc --noEmit && vitest run",
     "format": "prettier --write .",
-    "publish": "npm test && npm run build && npm version patch && npm publish"
+    "pub:patch": "npm test && npm run build && npm version patch && npm publish",
+    "pub:minor": "npm test && npm run build && npm version minor && npm publish",
+    "pub:major": "npm test && npm run build && npm version major && npm publish"
   },
   "exports": {
     "./useMultiDebounce": "./dist/useMultiDebounce.js",
     "./mutliDebounce": "./dist/mutliDebounce.js"
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "lodash": "^4.17.21"
   },
